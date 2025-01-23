@@ -33,11 +33,12 @@ To work with this project, you will need:
 4. Run the simulation to validate the design.
 
 
-🧪 Simulation and Testing
+### 🧪 Simulation and Testing
 Waveform Analysis: Simulate the Verilog code in Xilinx ISE to observe the waveforms of SCL and SDA lines.
 Protocol Compliance: Verify start, stop, read, and write conditions as per the I2C standard.
 Debugging: Use testbenches to identify and resolve any issues in the design.
-📚 Learn More About I2C
+
+### 📚 Learn More About I2C
 The I2C protocol operates using the following sequence:
 
 Start Condition: Initiated by pulling the SDA line low while SCL is high.
@@ -46,13 +47,13 @@ Data Transfer: Transfers data in 8-bit chunks, acknowledged by the receiving dev
 Stop Condition: Signals the end of communication by pulling SDA high while SCL is high.
 For more details, check out this resource.
 
-🛠 Future Enhancements
+### 🛠 Future Enhancements
 Add support for multi-master communication.
 Improve error handling mechanisms.
 Extend the design to support higher clock frequencies.
-🤝 Contribution
+### 🤝 Contribution
 Contributions are welcome! If you'd like to improve this project, feel free to submit a pull request or open an issue.
 
-🏆 Acknowledgments
+### 🏆 Acknowledgments
 This project is inspired by the need to integrate multiple devices efficiently in embedded systems. Special thanks to Aliah University ECE Department for their resources and support.
 
