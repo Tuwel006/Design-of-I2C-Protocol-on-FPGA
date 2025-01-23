@@ -25,8 +25,8 @@ To work with this project, you will need:
 ### Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/tuwel006/design-of-i2c-protocol-on-fpga.git
-   cd design-of-i2c-protocol-on-fpga
+   git clone https://github.com/Tuwel006/Design-of-I2C-Protocol-on-FPGA.git
+   cd Design-of-I2C-Protocol-on-FPGA
 
 2. Open Xilinx ISE 14.6 and create a new project.
 3. Add the Verilog files from this repository to your project.
