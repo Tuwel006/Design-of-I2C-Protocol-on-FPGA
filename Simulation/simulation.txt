@@ -1,1 +1,61 @@
 ##Simulation
+
+Waveform Signals
+read_data[7:0]: Data read from the slave.
+received_addr[7:0]: Address received during communication.
+write_data[7:0]: Data written to the slave.
+ready: Indicates that the module is ready for the next operation.
+state[3:0]: Current state of the FSM (Finite State Machine) controlling the I2C protocol.
+i2c_clk: I2C clock signal generated for synchronous communication.
+i2c_sda: Serial data line used for data transfer.
+i2c_scl: Serial clock line for the protocol.
+clk: System clock signal.
+rst: Reset signal.
+addr[6:0]: Address sent to the slave device.
+data_in[7:0]: Input data provided for the write operation.
+enable: Enables the I2C communication.
+rw: Read/Write operation indicator (0 = write, 1 = read).
+Key Operations
+1. START Condition
+Time Frame: Beginning (0 ns to 50 ns).
+Details:
+The i2c_sda line transitions from HIGH to LOW while i2c_scl is HIGH.
+This indicates the start of communication.
+FSM transitions to the next state (0001), indicating the start of address transmission.
+2. Address Transmission
+Time Frame: 50 ns to 100 ns.
+Details:
+The master sends a 7-bit address (0101010) on i2c_sda.
+Each bit is synchronized with the clock signal i2c_scl.
+The state transitions to 0010, indicating the process of sending the address.
+Read/Write (W/R) Bit: At the end of the address, the rw bit (0) is transmitted to indicate a write operation.
+3. Data Transmission
+Time Frame: 100 ns to 200 ns.
+Details:
+The master sends 8 bits of data (11110111) on the i2c_sda line.
+Data bits are sent one by one, synchronized with i2c_scl.
+The FSM transitions to 0011, indicating data transmission.
+ready signal may toggle depending on the state.
+4. STOP Condition
+Time Frame: Around 200 ns.
+Details:
+The i2c_sda line transitions from LOW to HIGH while i2c_scl is HIGH.
+This indicates the end of communication.
+The FSM transitions to 1000, indicating the stop condition.
+State Transitions in FSM
+0000 (Idle): The protocol is idle, waiting for a start condition.
+0001 (Start Condition): Start condition detected; ready to send address.
+0010 (Address Transmission): 7-bit address and W/R bit are transmitted.
+0011 (Data Transmission): 8 bits of data are sent or received.
+1000 (Stop Condition): Stop condition is detected; communication ends.
+Important Observations
+SDA and SCL Behavior:
+
+Data (i2c_sda) changes only when the clock (i2c_scl) is LOW.
+Data is stable when the clock is HIGH (I2C protocol requirement).
+FSM State Progression:
+
+The states progress logically based on the protocol phases (Start → Address → Data → Stop).
+Waveform Accuracy:
+
+The graph adheres to the I2C protocol specification and successfully demonstrates write operation.
