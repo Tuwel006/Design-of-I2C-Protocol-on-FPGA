@@ -1,0 +1,17 @@
+###slave
+
+ NET "i2c_scl"  LOC = "C7" | IOSTANDARD = LVTTL  | SLEW = SLOW  | DRIVE = 6 |PULLUP;
+
+ NET "i2c_sda"  LOC = "D7" | IOSTANDARD = LVTTL  | SLEW = SLOW  | DRIVE = 6 |PULLUP ;
+ NET "i2c_sda" OFFSET=IN "2 us" BEFORE "i2c_scl";# t_SU;DAT (Data Setup Time)
+ 
+  
+
+ NET "write_data[0]" LOC = "F9" ;
+ NET "write_data[1]" LOC = "E9" ;
+ NET "write_data[2]" LOC = "D11";
+ NET "write_data[3]" LOC = "C11";
+ NET "write_data[4]" LOC = "F11";
+ NET "write_data[5]" LOC = "E11";
+ NET "write_data[6]" LOC = "E12";
+ NET "write_data[7]" LOC = "F12";

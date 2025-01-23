@@ -1,0 +1,11 @@
+##master
+NET "clk" LOC = "C9"  | IOSTANDARD = LVCMOS33 ; 
+NET "clk" PERIOD = 10 us HIGH 50%;
+ 
+NET "rst"  LOC = "H13" | IOSTANDARD = LVTTL;
+
+
+NET "i2c_scl"  LOC = "C7" | IOSTANDARD = LVTTL  | SLEW = SLOW  | DRIVE = 6 | PULLUP;
+
+NET "i2c_sda"  LOC = "D7" | IOSTANDARD = LVTTL  | SLEW = SLOW  | DRIVE = 6 | PULLUP;
+NET "i2c_sda" OFFSET=OUT "2 us" BEFORE "i2c_scl"; #Setup Time (t_SU;DAT)
